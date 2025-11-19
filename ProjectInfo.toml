@@ -1,0 +1,7 @@
+project =" teyuna"
+
+[developer]
+nome = "Arthur Escalera"
+
+[requirements]
+FastApi = 
