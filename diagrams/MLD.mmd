@@ -1,0 +1,19 @@
+---
+config:
+  theme: redux
+  layout: elk
+---
+flowchart TB
+    n2["Pessoa"] L_n2_A_0@-- se cadastra como --> A["Usuário"]
+    A -- pode ser --> n8["Administrador"] & n9["Cliente"]
+    n9 -- ver --> n10["Untitled Node"]
+    n11["Lista de produtos"] -- é feita de --> n13["Produto"]
+    n13 -- possui cores --> n14["Cores"]
+    n13 -- é distribuido por --> n15["Fornecedores/Fabricantes"]
+    n14 -- possui --> n16["Tipos de cores"]
+    n13 -- possui --> n17["Histórico de valores"]
+
+    n2@{ icon: "fa:user", pos: "t", h: 48}
+    A@{ shape: rect}
+
+    L_n2_A_0@{ animation: none }
