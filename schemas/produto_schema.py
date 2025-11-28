@@ -6,7 +6,6 @@ class ProdutoCreate(BaseModel):
     nome: str
     preco: float
     descricao: Optional[str] = None
-    pass
 
 # Schema para resposta da API
 class ProdutoResponse(BaseModel):

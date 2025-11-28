@@ -1,7 +1,5 @@
 from fastapi import FastAPI
-
 from fastapi.middleware.cors import CORSMiddleware
-
 from routers.produtos_router import router as produtos_router
 
 app = FastAPI(
