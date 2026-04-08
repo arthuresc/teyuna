@@ -34,7 +34,7 @@ router = APIRouter()
 # Rota raiz
 @router.get("/")
 def read_root():
-    return {"message": "Bem-vindo à API de Produtos!"}``
+    return {"message": "Bem-vindo à API de Produtos!"}
 
 # Health check
 @router.get("/health")
