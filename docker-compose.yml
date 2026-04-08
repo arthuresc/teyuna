@@ -10,7 +10,7 @@ services:
     ports:
       - '8000:8000'
     environment:
-      - DATABASE_URL=${DATABASE_URL}
+      - DATABASE_URL=${DATABASE_URL_ASYNC}
     depends_on:
       - db
     restart: unless-stopped

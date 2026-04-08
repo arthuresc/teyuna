@@ -1,8 +1,9 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
-from routers.produtos_router import router as produtos_router
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
 from database.session import get_db
+from routers import router as routers
+
 from sqlalchemy import text
 
 
@@ -27,24 +28,28 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+router = APIRouter()
 
-app.include_router(produtos_router)
 
 # Rota raiz
-@app.get("/")
+@router.get("/")
 def read_root():
-    return {"message": "Bem-vindo à API de Produtos!"}
+    return {"message": "Bem-vindo à API de Produtos!"}``
 
 # Health check
-@app.get("/health")
+@router.get("/health")
 def health_check():
     return {"status": "healthy"}
 
 # Health check: db
-@app.get("/health/db")
-def check_db(db: Session = Depends(get_db)):
+@router.get("/health/db")
+async def check_db(db: AsyncSession = Depends(get_db)):
     try:
-      db.execute(text("SELECT 1"))
+      await db.execute(text("SELECT 1"))
       return {"status": "healthy"}
     except Exception as e:
       return {"status": "error", "detail": str(e)}
+
+router.include_router(routers)
+
+app.include_router(router)
