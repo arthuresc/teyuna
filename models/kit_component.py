@@ -5,8 +5,8 @@ from database.base import Base, BaseMixins
 class KitComponent(BaseMixins, Base):
     __tablename__ = "kit_components"
     
-    kit_id = Column(Inteer, ForeignKey("products.id", ondelete="CASCADE"), primary_key=True)
-    component_id = Column(Inteer, ForeignKey("products.id", ondelete="RESTRICT"), primary_key=True)
+    kit_id = Column(Integer, ForeignKey("products.id", ondelete="CASCADE"), primary_key=True)
+    component_id = Column(Integer, ForeignKey("products.id", ondelete="RESTRICT"), primary_key=True)
     
     
     default_quantity = Column(Integer, nullable=False)
