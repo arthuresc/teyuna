@@ -1,1 +1,4 @@
 .qpanda/
+*.env
+.env
+/*.env
